@@ -1,0 +1,84 @@
+/* -------------------------------------------------------------------
+ * Theme Name            : Corcota - Drone App Landing Page
+ * Author Name           : Yucel Yilmaz
+ * Created Date          : 20 November 2020
+ * Version               : 1.0
+ * File                  : style.css
+------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------
+   Base                               
+   ------------------------ /
+ * 01.Base
+ * 02.Typography
+ * 03.Helper Class
+   ------------------------ /
+   Components                               
+   ------------------------ /
+ * 04.Buttons  
+ * 05.Animations 
+ * 06.Form(Input, Comment)
+ * 07.Pagination 
+ * 08.Preloader
+   ------------------------ /
+   Layout                               
+   ------------------------ /
+ * 09.Header
+ * 10.Hero
+ * 11.About
+ * 12.Services
+ * 13.Work Process
+ * 14.Skills
+ * 15.Portfolio
+ * 16.Our Team  
+ * 17.Counters
+ * 18.Testimonial
+ * 19.Pricing
+ * 20.Footer
+ * 21.Breadcrumb
+   ------------------------ /
+   Pages                               
+   ------------------------ /
+ * 22.404 Error Page
+ * 23.Portfolio Single 
+ * 24.Services Detail 
+ * 25.Contact Us 
+------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------- */
+/* 01.Base                               
+/* ---------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body, html {
+    font : {
+        size: 16px;
+        family: $font_text; 
+        weight: 400;
+    }
+    color: $body_text;
+    margin: 0;
+    padding: 0;
+}
+body {
+    position: relative;
+}
+::selection {
+    background: $color_dark;
+    color: $color_white;
+}
+a:link, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+textarea, textarea:focus, input, input:focus, button, button:focus {
+    outline: none;
+    resize: inherit;
+}
+.owl-carousel .owl-item img {
+    display: block;
+    width: auto;
+}

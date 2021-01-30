@@ -1,0 +1,90 @@
+/* ---------------------------------------------------------------- */
+/* 22.404 Error Page                     
+/* ---------------------------------------------------------------- */
+.error-page {
+    padding-bottom: 93px;
+    .error-text {
+        font-size: 200px;
+        text-align: center;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    .page-404-body {
+        text-align: center;
+        .error-title {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 32px;
+        }
+        .error-subline {
+            margin-bottom: 30px;
+        }
+        .page-error-form-group {
+            position: relative;
+            .page-error-form-control {
+                outline: none;
+                width: 100%;
+                border: none;
+                height: auto;
+                color: $color_black;
+                padding: 18px 70px 18px 50px;
+                display: block;
+                margin-bottom: 30px;
+                position: relative;
+                transition: all 0.25s ease;
+                background: $color_primary_light;
+                &:focus{
+                    outline: none;
+                    border: none;
+                }
+            }
+            span {
+                line-height: 60px;
+                color: $color_primary;
+                position: absolute;
+                pointer-events: none;
+                transition: all 0.25s ease;
+                top: 0;
+                left: 20px;
+            }
+        }
+        .page-error-search-btn {
+            top: 0;
+            right: 0;
+            border: none;
+            outline: none;
+            position: absolute;
+            padding: 15px 20px;
+            background-color: transparent;
+            width: 60px;
+            height: 60px;
+            color: $color_white;
+            background: $color_primary;
+            transition: all 0.25s linear;
+            &:hover {
+                background:  $color_dark;
+                color: $color_white;
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (portrait phones, less than 768px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width: 767.98px) {
+	.error-page {
+        .error-text {
+            font-size: 150px !important;
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (portrait phones, less than 576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width: 575.98px) {
+	.error-page {
+        .error-text {
+            font-size: 100px !important;
+        }
+    }
+}

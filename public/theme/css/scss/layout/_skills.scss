@@ -1,0 +1,113 @@
+/* ---------------------------------------------------------------- */
+/* 14.Skills                                       
+/* ---------------------------------------------------------------- */
+#skills {
+    position: relative;
+    .skils-bg {
+        top: 0;
+        left: 0;
+        width: 50%;
+        width: calc(50% - 15px);
+        height: 100%;
+        overflow: hidden; 
+        position: absolute;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+.skills-inner-wrap {
+    padding-left: 50px;
+    .skills-inner {
+        > h6 {
+            font-style: italic;
+            color: $color_primary;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            &:before {
+                content: "";
+                width: 20px;
+                height: 2px;
+                vertical-align: middle;
+                margin-right: 10px;
+                background: $color_primary;
+                display: inline-block;
+            }
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 30px;
+        }
+    }
+}
+.skills-progress-wrap {
+    .skills-item {
+        overflow: hidden;
+        margin-bottom: 30px;
+        position: relative;
+        transition: all 0.25s linear;
+        &:after, &:before {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .skills-progress-bar {
+            height: 12px;
+            position: relative;
+            background: $color_dark;
+            margin-top: 20px;
+            box-shadow: 0 5px 8px 0 $color_shadow;
+            .skills-progress-value {
+                top: 0;
+                left: 0;
+                height: 100%;
+                position: absolute;
+                background: $color_primary;
+                &:after {
+                    content: "";
+                    top: -15px;
+                    right: 0;
+                    z-index: 1;
+                    position: absolute;
+                    border:20px solid;
+                    transform: rotateY(-180deg);
+                    border-color: transparent transparent $color_primary $color_primary;
+                }
+            }
+        }
+        .skills-item-text {
+            h6 {
+                .skill-percent {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (992px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:991.98px) {
+    .skills-inner-wrap {
+        padding-left: 15px;
+    }
+    #skills {
+        .skils-bg {
+            display: none;
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:575.98px) {
+    .skills-inner-wrap .skills-inner h2 {
+        font-size: 28px;
+    }
+}

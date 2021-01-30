@@ -1,0 +1,144 @@
+/* ---------------------------------------------------------------- */
+/* 25.Contact Us               
+/* ---------------------------------------------------------------- */
+.contact-info-item {
+    display: flex;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+    background: $color_white;
+    box-shadow: 0 5px 10px 0 rgba($color_dark,0.1);
+    .icon {
+        display: flex;
+        padding: 30px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background: $color_primary;
+    }
+    .text {
+        flex: 1;
+        padding: 30px;
+        h5 {
+            margin-bottom: 10px;
+        }
+    }
+}
+.google-map {
+    line-height: 0;
+    iframe {
+        border: 0;
+        height: 705px;
+        width: 100% !important;
+    }
+}
+.contact-form-wrap {
+    .contact-form {
+        padding: 30px;
+        background: $color_white;
+        border-top: 2px solid $color_primary;
+        box-shadow: 0 5px 10px 0 rgba($color_dark,0.1);
+    }
+    .form-group {
+        margin-bottom: 0;
+        position: relative;
+        .captcha-input {
+            padding-left: 90px !important;
+        }
+        #contactFormCaptchaSpan {
+            position: absolute;
+            top: 0;
+            height: 60px;
+            display: block;
+            width: 70px;
+            text-align: center;
+            line-height: 60px;
+            background: $color_primary;
+            color: $color_white;
+            font-weight: 500;
+        }
+    }
+    .form-group {
+        margin-bottom: 20px;
+        position: relative;
+        .contact-form-control {
+            width: 100%;
+            display: block;
+            padding: 17px 20px 17px 53px;
+            transition: all 0.25s ease;
+            border: 1px solid rgba($color_black, 0.1);
+            &:focus {
+                border-color: $color_primary;
+            }
+        }
+        i {
+            line-height: 60px;
+            color: $color_primary;
+            position: absolute;
+            pointer-events: none;
+            top: 0;
+            left: 20px;
+        }
+        label {
+            font-weight: 600;
+            display: none;
+            color: darken($color_danger, 10%);
+            &.error {
+                display: block;
+            }
+        }
+        #contactSubject {
+            height: auto;
+            border-radius: 0;
+            &:focus,&:active {
+                border-color: rgba($color_black, 0.1);
+                box-shadow: none !important;
+            }
+        }
+        .custom-select {
+            padding: 17px 20px 17px 20px;
+        }
+    }
+    .contact-alerts .empty-form span, .contact-alerts .email-invalid span, 
+    .contact-alerts .phone-invalid span, .contact-alerts .empty-select span,
+    .contact-alerts .security-alert span {
+        display: block;
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border-left: 4px solid $color_danger;
+        color: darken($color_danger, 10%);
+        background: rgba($color_danger,0.1);
+    }
+    #error_message {
+        margin-top: 30px;
+        display: block;
+        padding: 20px;
+        word-break: break-word;
+        color: darken($color_danger, 10%);
+        background: rgba($color_danger,0.1);
+    }
+    button {
+        border: none;
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (992px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:991.98px) {
+    .google-map {
+        margin-bottom: 30px;
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:575.98px) {
+    .contact-info-item {
+        display: block;
+        .icon {
+            display: block;
+            text-align: left;
+        }
+    }
+}

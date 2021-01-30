@@ -1,0 +1,92 @@
+/* ---------------------------------------------------------------- */
+/* 05.Animations                                                     
+/* ---------------------------------------------------------------- */
+@keyframes ldsellipsis1 {
+	0% {
+	  transform: scale(0);
+	}
+	100% {
+	  transform: scale(1);
+	}
+}
+@keyframes ldsellipsis3 {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0);
+	}
+}
+@keyframes ldsellipsis2 {
+	0% {
+	  transform: translate(0, 0);
+	}
+	100% {
+	  transform: translate(24px, 0);
+	}
+}
+@keyframes pulseWhite {
+	0% {
+		box-shadow: 0 0 0 0 rgba($color_white, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba($color_white, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba($color_white, 0);
+	}
+}
+@keyframes pulsePrimary {
+	0% {
+		box-shadow: 0 0 0 0 rgba($color_primary, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba($color_primary, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba($color_primary, 0);
+	}
+}
+@keyframes iconPulse {
+	0%{
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}	
+	100% {
+		opacity: 0;
+		transform: scale(1);
+	}
+}	
+@keyframes stickyMenu {
+	0% {
+		margin-top: -120px;
+		opacity: 0;
+	}
+	50% {
+		margin-top: -64px;
+		opacity: 0;
+	}
+	100% {
+		margin-top: 0;
+		opacity: 1;
+	}
+}
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes dashCheck {
+    0% {
+      stroke-dashoffset: -100;
+    }
+    100% {
+      stroke-dashoffset: 900;
+    }
+}

@@ -1,0 +1,142 @@
+/* ---------------------------------------------------------------- */
+/* 24.Services Detail                      
+/* ---------------------------------------------------------------- */
+.services-detail-inner-wrap {
+    padding-left: 50px;
+    .services-detail-inner {
+        h6 {
+            font-style: italic;
+            color: $color_primary;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            &:before {
+                content: "";
+                width: 20px;
+                height: 2px;
+                vertical-align: middle;
+                margin-right: 10px;
+                background: $color_primary;
+                display: inline-block;
+            }
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 40px;
+        }
+    }
+    .services-list {
+        li {
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            i {
+                color: $color_primary;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+#key-features {
+    background: $color_dark;
+    .key-features-item {
+        margin-bottom: 30px;
+        display: flex;
+        .icon {
+            margin-right: 30px;
+        }
+        .text {
+            flex: 1;
+            h5 {
+                margin-bottom: 15px;
+                color: $color_white;
+            }
+            p {
+                color: $color_white;
+                opacity: 0.75;
+            }
+        }
+    }
+}
+.faq-accordion {
+    .accordion-item {
+        margin-bottom: 20px;
+        background: $color_white;
+        box-shadow: 0 10px 28px 0 $color_shadow;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .accordion-header {
+            a {
+                color: $color_black;
+                display: flex;
+                font-weight: 700;
+                padding: 30px;
+                align-items: center;
+                justify-content: space-between;
+                border-top: 3px solid $color_primary;
+                transition: all 0.25s ease;
+                &[aria-expanded=true] {
+                    color: $color_white;
+                    background: $color_primary;
+                    border-radius: 0;
+                    i {
+                        &:before {
+                            content: '\f068';
+                        }
+                        color: $color_white;
+                        background: rgba($color_white,0.1);
+                    }
+                }
+                i {
+                    width: 35px;
+                    height: 35px;
+                    text-align: center;
+                    line-height: 35px;
+                    color: $color_primary;
+                    background: rgba($color_primary,0.1);
+                }
+            }
+        }
+        .accordion-body {
+            padding: 30px;
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (992px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:991.98px) {
+    .services-detail-img {
+        margin-bottom: 30px;
+    }
+    .services-detail-inner-wrap {
+        padding-left: 15px;
+    }
+    .faq-img {
+        margin-top: 20px;
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:575.98px) {
+    .services-detail-inner-wrap {
+        .services-detail-inner {
+            h2 {
+                font-size: 28px;
+            }
+        }
+    }
+    #key-features {
+        .key-features-item {
+            display: block;
+            .icon {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

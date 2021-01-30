@@ -1,0 +1,73 @@
+/* ---------------------------------------------------------------- */
+/* 18.Testimonial                              
+/* ---------------------------------------------------------------- */
+.testimonial-item {
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+    background: $color_white;
+    .top {
+        display: flex;
+        margin-bottom: 30px;
+        .img {
+            margin-right: 30px;
+            border-radius: 50%;
+            img {
+                border-radius: 50%;
+            }
+        }
+        .text {
+            h5 {
+                margin-bottom: 8px;
+            }
+            h6 {
+                color: $color_primary;
+                font-style: italic;
+                text-transform: capitalize;
+                &:before {
+                    content: "";
+                    width: 10px;
+                    height: 2px;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    background: $color_primary;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    .body {
+        p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .rating-star {
+            i {
+                color: $color_primary;
+                margin-right: 2px;
+                display: inline-block;
+                font-size: 14px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    &:hover {
+        box-shadow: 0 10px 15px 0 rgba($color_dark,0.1);
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 768px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:767.98px) {
+    .testimonial-item {
+        .top {
+            display: block;
+            .img {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    }    
+}

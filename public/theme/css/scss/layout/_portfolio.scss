@@ -1,0 +1,221 @@
+/* ---------------------------------------------------------------- */
+/* 15.Portfolio                            
+/* ---------------------------------------------------------------- */
+#latest-projects {
+    background: $color_dark;
+    .section-heading-left {
+        h6,h2 {
+            color: $color_white;
+        }
+    }
+}
+.latest-project-item, .recent-project-item {
+    position: relative;
+    overflow: hidden;
+    .portfolio-item-img {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
+        &:after {
+            content: "";
+            left: 0;
+            bottom: 0;
+            width: 100%;    
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s ease-in-out;
+            background: rgba($color_dark, 0.5);
+        }
+    }
+    .block-btn {
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba($color_white, 0.03);
+            span {
+                font-weight: 700;
+            }
+            &:after {
+                background: $color_primary;
+            }
+        }
+    }
+    .portfolio-buttons {
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        visibility: hidden;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.35s ease-in-out;
+        transform: translate(-50%,-50%);
+        a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        span {
+            position: relative;
+            &:nth-child(1),
+            &:nth-child(2) {
+                &:after,&:before {
+                    content: "";
+                    position: absolute;
+                    background: $color_white;
+                    transition: all 0.5s ease;
+                }
+            }
+            &:nth-child(1) {
+                &:after,&:before {
+                    top: 0;
+                    width: 30px;
+                    height: 2px;
+                }
+                &:after {
+                    left: -100px;
+                }
+                &:before {
+                    left: 100px;
+                }
+            }
+            &:nth-child(2) {
+                &:after,&:before {
+                    left: 0;
+                    width: 2px;
+                    height: 30px;
+                }
+                &:after {
+                    top: -100px;
+                }
+                &:before {
+                    top: 100px;
+                }
+            }
+        }
+    }
+    &:hover {
+        .portfolio-item-img {
+            &:after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .portfolio-buttons {
+            opacity: 1;
+            visibility: visible;
+            span {
+                &:nth-child(1) {
+                    &:after {
+                        left: -30px;
+                    }
+                    &:before {
+                        left: 0px;
+                    }
+                }
+                &:nth-child(2) {
+                    &:after {
+                        top: -30px;
+                    }
+                    &:before {
+                        top: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+.recent-project-item {
+    margin-bottom: 20px;
+    .portfolio-item-img {
+        margin-bottom: 20px;
+    }
+    .block-btn {
+        a {
+            background: $color_dark;
+            &:after {
+                background: $color_primary;
+            }
+        }
+    }
+}
+#portfolio-grid, #portfolio-masonry {
+    .latest-project-item {
+        margin-bottom: 30px;
+        .block-btn {
+            a {
+                background: $color_dark;
+                &:after {
+                    background: $color_primary;
+                }
+            }
+        }
+    }
+}
+.portolio-grid-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    .section-heading-left {
+        margin-bottom: 0;
+    }
+    .gallery-filter {
+        text-align: right;
+        display: flex;
+        a {
+            z-index: 6;
+            padding: 10px 15px;
+            background: transparent;
+            position: relative;
+            color: $color_black;
+            margin: 0 10px 0 0;
+            font-weight: 500;
+            font-size: 14px;
+            overflow: hidden;
+            display: inline-block;
+            transition: all 0.5s ease;
+            border: 1px solid $color_soft_grey;
+            &:last-child {
+                margin-right: 0;
+            }
+            &.current {
+                background: $color_primary;
+                color: $color_white;
+                border-color: transparent;
+            }
+            &:hover {
+                color: $color_white !important;
+                border-color: transparent;
+                background: $color_primary;
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 992px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:991.98px) {
+    .portolio-grid-header {
+        display: block;
+        margin-bottom: 60px;
+        .gallery-filter {
+            margin-top: 30px;
+            text-align: left;
+            display: flex;
+            a {
+                margin: 0 10px 10px 0;
+            }
+        }
+    }
+}

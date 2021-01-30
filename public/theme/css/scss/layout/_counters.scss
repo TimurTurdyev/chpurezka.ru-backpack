@@ -1,0 +1,67 @@
+/* ---------------------------------------------------------------- */
+/* 17.Counters                            
+/* ---------------------------------------------------------------- */
+#counters {
+	background: $color_dark;
+    .counter-item {
+        text-align: center;
+        position: relative;
+        margin-bottom: 30px;
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+        &:after {
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            content: "";
+            position: absolute;
+            background: rgba($color_white, 0.75);
+        }
+        .top {
+            h2 {
+                font-size: 60px;
+                margin-bottom: 5px;
+                color: $color_white;
+            }
+        }
+        .text {
+            h5 {
+                color: $color_white;
+                font-weight: 500;
+                font-size: 17px;
+                opacity: 0.75;
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 992px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:991.98px) {
+    .counter-item {
+        &:nth-child(2) {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width: 576px) {
+    .counter-item {
+        &:after {
+            display: none;
+        }
+        .top {
+            h2 {
+                font-size: 50px;
+            }
+        }
+    }
+}

@@ -1,0 +1,312 @@
+/* ---------------------------------------------------------------- */
+/* 06.Form(Input, Comment)                             
+/* ---------------------------------------------------------------- */
+#headerSearchBar {
+    background: rgba($color_dark, 0.9);
+    padding-right: 0 !important;
+    &.custom-modal {
+        .modal-content {
+            background: transparent;
+            border: none;
+            .modal-header {
+                padding: 20px 30px 20px 0;
+                border-radius: 0;
+                border: none;
+                .modal-title {
+                    color: $color_white;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+                button {
+                    opacity: 1;
+                    span {
+                        font-weight: 400;
+                        color: $color_white;
+                    }
+                }    
+            }
+            .modal-body {
+                padding: 0;
+                border-radius: 0;
+                .popup-form-group {
+                    position: relative;
+                    overflow: hidden;
+                    .popup-form-control {
+                        height: 70px;
+                        outline: none;
+                        width: 100%;
+                        border: 1px solid rgba($color_white, 0.5);
+                        color: $color_white;
+                        background: transparent;
+                        padding: 0 90px 0 70px;
+                        transition: all 0.25s ease;
+                        &:focus{
+                            outline: none;
+                            border-color: $color_white;
+                        }
+                    }
+                    > span {
+                        top: 0;
+                        left: 0;
+                        width: 70px;
+                        height: 70px;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        position: absolute;
+                        justify-content: center;
+                        color: $color_white;
+                        font-size: 16px;
+                    }  
+                    .searchbar-btn {
+                        top: 0;
+                        right: 0;
+                        padding: 0;
+                        width: 70px;
+                        border: none;
+                        height: 100%;
+                        position: absolute;
+                        transition: all 0.5s ease;
+                        background: $color_white;
+                        color: $color_primary;
+                        &:hover {
+                            background: $color_primary;
+                            color: $color_white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#contactFormSuccessModal, #contactFormDangerModal {
+    background: initial;
+    .modal-content {
+        background: $color_white;
+        border: none;
+    }
+    .modal-header {
+        text-align: center;
+        padding:20px;
+        border: 0;
+        border-radius: 0 !important;
+        align-items: center;
+        h5 {
+            font-weight: 500;
+            font-size: 18px;
+        }
+        button {
+            font-weight: 400;
+            span {
+                font-size: 30px !important;
+            }
+        }
+        h5, button {
+            color: $color_white;
+        }
+        &.danger  {
+            background: $color_danger;
+            color: $color_white;        
+        }
+        &.success {
+            background: $color_success;
+            color: $color_white;
+        }
+    }
+    .modal-body {
+        padding: 30px !important;
+        border-radius: 0;
+        .form-popup-inner {
+            text-align: center;
+            .form-icon {
+                margin-bottom: 30px;
+                svg {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    .path {
+                        stroke-dasharray: 1000;
+                        stroke-dashoffset: 0;
+                        &.circle {
+                            animation: dash 0.9s ease-in-out;
+                        }
+                        &.line {
+                            stroke-dashoffset: 1000;
+                            animation: dash 0.9s 0.35s ease-in-out forwards;
+                        }
+                        &.check {
+                            stroke-dashoffset: -100;
+                            animation: dashCheck 0.9s 0.35s ease-in-out forwards;
+                        }
+                    }
+                }
+                &.danger {
+                    svg {
+                        fill: $color_danger;
+                        stroke: $color_danger;
+                        background: rgba($color_danger, 0.1);
+                    }
+                }
+                &.success svg {
+                    fill: $color_success;
+                    stroke: $color_success;
+                    background: rgba($color_success, 0.1);
+                }
+            }
+        }
+    }
+    .modal-footer {
+        background: $color_white;
+        padding: 20px;
+        justify-content: center;
+        .popup-link {
+            font-weight: 700;
+            color: $color_black;
+            &.success {
+                &:hover {
+                    color: $color_success;
+                    text-decoration: underline;
+                }
+            }
+            &.danger {
+                &:hover {
+                    color: $color_danger;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.comment-item {
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+    &:last-child {
+        border-bottom: 0;
+    }
+    p {
+        margin-bottom: 15px !important;
+    }
+    .comment-item-title {
+        margin-bottom: 8px;
+    }
+    img {
+        margin-right: 20px;
+    }
+    .comment-meta {
+        margin-bottom: 9px;
+        span {
+            display: inline-block;
+            margin-right: 10px;
+            color: $color_black;
+            font-size: 14px;
+            font-weight: 600;
+            i {
+                margin-right: 10px;
+                color: $color_primary;
+            }
+        }
+    }
+    .reply-btn {
+        display: inline-block;
+        font-weight: 500;
+        color: $color_black;
+        transition: all 0.25s ease;
+        &:hover {
+            color: $color_primary;
+        }
+        i {
+            vertical-align: -1px;
+            display: inline-block;
+            color: $color_primary;
+        }
+    }
+    &.sub-comment-item {
+        margin-left: 120px;
+    }
+}
+.leave-comment-wrapper {
+    .comment-form-group {
+        margin-bottom: 20px;
+        position: relative;
+        .form-control {
+            outline: none;
+            width: 100%;
+            border: none;
+            height: auto;
+            color: $color_black;
+            padding: 20px 20px 19px 50px;
+            border-radius: 0;
+            display: block;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.5s ease;
+            background: $color_primary_light;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        span {
+            top: 0;
+            left: 20px;
+            line-height: 63px;
+            color: $color_primary;
+            position: absolute;
+            pointer-events: none;
+        }
+    }
+    button {
+        border: none;
+    }
+}
+.custom-form-group {
+    position: relative;
+    .custom-form-control {
+        width: 100%;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        padding: 18px 30px 18px 60px;
+        border: none;
+        transition: all 0.25s ease;
+        box-shadow: 0 10px 20px 0 $color_shadow;
+        &:focus {
+            box-shadow: 0 15px 30px 0 $color_shadow;
+        }
+    }
+    > span {
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        justify-content: center;
+        color: $color_primary;
+        font-size: 16px;
+    }  
+    button {
+        width: 100%;
+        display: block !important;
+        background: transparent;
+    }
+}
+.comment-block-mt {
+    margin-top: 30px;
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width: 575.98px) {
+    .comment-item {
+        display: block !important;
+        img {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        &.sub-comment-item {
+            margin-left: 100px;
+        }
+    }
+}

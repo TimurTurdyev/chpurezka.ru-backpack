@@ -1,0 +1,243 @@
+/* ---------------------------------------------------------------- */
+/* 03.Helper Class                              
+/* ---------------------------------------------------------------- */
+.page-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.section {
+    padding: 100px 0;
+    .section-heading-center, .section-heading-left {
+        margin-bottom: 70px;
+        h2 {
+            display: block;
+        }
+        h6 {
+            font-style: italic;
+            color: $color_primary;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+    }
+    .section-heading-center {
+        text-align: center;
+        h6 {
+            &:before, &:after {
+                content: "";
+                width: 20px;
+                height: 2px;
+                display: inline-block;
+                vertical-align: middle;
+                background: $color_primary;
+            }
+            &:before {
+                margin-right: 10px;
+            }
+            &:after {
+                margin-left: 10px;
+            }
+        }
+    }
+    .section-heading-left {
+        text-align: left;
+        h2 {
+            text-align: left;
+            display: block;
+        }
+        h6 {
+            &:before {
+                content: "";
+                width: 20px;
+                height: 2px;
+                vertical-align: middle;
+                margin-right: 10px;
+                background: $color_primary;
+                display: inline-block;
+            }
+        }
+    }
+}
+.inner-header-title {
+    margin-bottom: 20px !important;
+    position: relative;
+    padding-bottom: 22px;
+    display: block;
+    &:after, &:before {
+        content: "";
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        position: absolute;
+        border-radius: 5px;
+    }
+    &:after {
+        width: 100%;
+        background: rgba($color_black, 0.05);
+    }
+    &:before {
+        width: 60px;
+        z-index: 36;
+        background: $color_primary;
+    }
+}
+.bg-grey {
+    background: $color_like_grey;
+}
+.bg-light-grey {
+    background: $color_primary_light;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.pb-minus-70 {
+    padding-bottom: 70px;
+}
+.pb-minus-93 {
+    padding-bottom: 93px;
+}
+.bg-overlay {
+    z-index: 1;
+    padding: 100px 0;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    &:before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        z-index: -1;
+        position: absolute;
+        opacity: 0.75;
+        background: $color_primary;
+    }
+}   
+// Owl Carousel
+.owl-carousel {
+    .owl-item img {
+        width: auto;
+        display: inline-block;
+    }
+}
+#projects-carousel, #services-carousel, #team-carousel, #testimonials-carousel, #blog-carousel {
+    &.owl-theme {
+        .owl-nav {
+            margin-top: 0;
+            position: absolute;
+            top: -130px;
+            right: 0;
+            display: inline-block;
+            button {
+                margin: 10px;
+                display: inline-block;
+                text-transform: capitalize;
+                span {
+                    width: 50px;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                    color: $color_white;
+                    transition: all 0.5s ease;
+                }
+            }
+            button.owl-prev {
+                margin-right: 0;
+            }
+        }
+    }
+}
+#recent-projects-carousel {
+    .owl-dots {
+        text-align: left;
+        margin-top: 0;
+        line-height: 0;
+        .owl-dot {
+            text-align: left;
+            &:first-child {
+                span {
+                    margin-left: 0;
+                }
+            }
+            span {
+                width: 20px;
+                height: 7px;
+                margin: 0 5px;
+                display: block;
+                border-radius: 0;
+                background: $color_dark;
+                transition: all .25s ease;
+                &:hover {
+                    background: $color_primary;
+                }
+            }
+            &.active {
+                span {
+                    background: $color_primary;
+                }
+            }
+        }
+    }
+}
+
+#services-carousel, #testimonials-carousel, #team-carousel, #blog-carousel {
+    &.owl-theme {
+        .owl-nav {
+            button {
+                span {
+                    background: $color_white;
+                    color: $color_primary;
+                    box-shadow: 0 10px 15px 0 rgba($color_dark,0.1);
+                }
+                &:hover {
+                    span {
+                        background: $color_primary;
+                        color: $color_white;
+                    }
+                }
+            }
+        }
+    }
+}
+#projects-carousel {
+    &.owl-theme {
+        .owl-nav {
+            button {
+                span {
+                    background: rgba($color_white, 0.03);
+                }
+                &:hover {
+                    span {
+                        background: $color_white;
+                        color: $color_primary;
+                    }
+                }
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 768px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+	#services-carousel, #projects-carousel, #team-carousel, #testimonials-carousel, #blog-carousel {
+        &.owl-theme {
+            .owl-nav {
+                display: none !important;
+            }
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (less than 576px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:575.98px) {
+    .section {
+        .section-heading-left, .section-heading-center {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,166 @@
+/* ---------------------------------------------------------------- */
+/* 20.Footer                    
+/* ---------------------------------------------------------------- */
+.footer {
+    background: $color_dark; 
+    .footer-newsletter {
+        background: rgba($color_white, 0.03);
+        padding: 30px 0;
+        .newsletter-form-group {
+            position: relative;
+            .newsletter-form-control {
+                width: 100%;
+                outline: none;
+                border: none;
+                height: 70px;
+                color: $color_white;
+                background: $color_dark;
+                display: block;
+                padding: 0 28px;
+                position: relative;
+                transition: all 0.5s ease;
+            }
+            button {
+                border: none;
+                display: block;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: center;
+                color: $color_primary;
+                transition: all 0.5s ease;
+                box-shadow: 0 3px 15px 0 rgba($color_shadow,0.15);
+            }
+        }
+    }
+    .footer-top {
+        padding: 80px 0 50px 0;
+        .footer-widget {
+            margin-bottom: 30px;
+            .footer-desc {
+                color: $color_white;
+                opacity: 0.75;
+                margin-bottom: 32px;        
+            }
+            .footer-title {
+                color: $color_white;
+                margin-bottom: 30px;
+                position: relative;
+                font-size: 20px;
+                &:after {
+                    content: "";
+                    display: block;
+                    background: $color_white;
+                    margin-top: 10px;
+                    width: 50px;
+                    height: 2px;
+                }
+            }
+            .footer-social-links {
+                a {
+                    width: 50px;
+                    height: 50px;
+                    color: $color_white;
+                    line-height: 50px;
+                    text-align: center;
+                    display: inline-block;
+                    background: rgba($color_white, 0.05);
+                    transition: all 0.25s linear;
+                    margin-right: 10px;
+                    font-size: 20px;
+                    &:hover {
+                        background: $color_primary;
+                        color: $color_white;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .footer-contact-info-list {
+                li {
+                    margin-bottom: 15px;
+                    &:last-child {
+                        margin-bottom: 0;
+                        .text {
+                            p {
+                                &:last-child {
+                                    line-height: 27px;
+                                }
+                            }
+                        }
+                    }
+                    h6 {
+                        color: $color_white;
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        color: $color_white;
+                        opacity: 0.75;
+                        vertical-align: middle;
+                    }
+                }
+            }
+            .footer-links {
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    span {
+                        color: $color_white;
+                        opacity: 0.75;
+                    }
+                    a {
+                        color: $color_white;
+                        opacity: 0.75;
+                        &:hover {
+                            opacity: 1;
+                            text-decoration: underline;
+                        }
+                    }
+                    &:before {
+                        content: "";
+                        width: 10px;
+                        height: 2px;
+                        font-weight: 700;
+                        margin-right: 15px;
+                        background: $color_white;
+                        display: inline-block;
+                        transition: all 0.5s ease;
+                    }
+                    &:hover {
+                        &:before {
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+    .copyright {
+        background: rgba($color_white, 0.03);
+        padding: 30px 0;
+        .copyright-text {
+            color: $color_white;
+            opacity: 0.75;
+        }
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Responsive Media Query (768px)
+/* ---------------------------------------------------------------- */
+@media only screen and (max-width:767.98px) {
+    .footer {
+        .footer-newsletter {
+            .newsletter-form-group {
+               .newsletter-btn {
+                    margin-top: 15px;
+               }
+            }
+        }
+    }
+}
