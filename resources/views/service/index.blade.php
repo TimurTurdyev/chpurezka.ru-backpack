@@ -33,11 +33,11 @@
                     <div class="col-md-6 col-lg-4 gallery-item {{join(' ', $filters)}}">
                         <div class="latest-project-item">
                             <div class="portfolio-item-img">
-                                <img src="{{$detail->image ? asset('storage/' . $detail->image):'theme/img/portfolio/portfolio-img-1.jpg'}}"
+                                <img src="{{$detail->image ? asset($detail->image):'theme/img/portfolio/portfolio-img-1.jpg'}}"
                                      alt="{{$detail->name}}"
                                      class="img-fluid portfolio-img">
                                 <div class="portfolio-buttons">
-                                    <a href="{{$detail->image ? asset('storage/' . $detail->image):'theme/img/portfolio/portfolio-img-1.jpg'}}"
+                                    <a href="{{$detail->image ? asset($detail->image):'theme/img/portfolio/portfolio-img-1.jpg'}}"
                                        class="portfolio-zoom-link"><span></span><span></span></a>
                                 </div>
                             </div>

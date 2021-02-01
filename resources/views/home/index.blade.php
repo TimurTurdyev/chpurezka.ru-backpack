@@ -1,12 +1,12 @@
 @extends('welcome')
-@section('meta_title', config('site.title'))
-@section('meta_description', config('site.description'))
+@section('meta_title', config('setting.site.title'))
+@section('meta_description', config('setting.site.description'))
 @section('content')
     <!--// Hero Section Start //-->
-    {!! config('site.widget_banner') !!}
+    {!! config('setting.site.widget_banner') !!}
     <!--// Hero Section End //-->
     <!--// About Section Start //-->
-    {!! config('site.widget_about') !!}
+    {!! config('setting.site.widget_about') !!}
     <!--// About Section End //-->
 
     <!--// Services Section Start //-->
@@ -25,7 +25,7 @@
                     <div class="item">
                         <div class="services-item">
                             <div class="icon">
-                                <img src="{{asset('storage/'.$info->image)}}" alt="{{$info->name}}" class="img-fluid">
+                                <img src="{{asset($info->image)}}" alt="{{$info->name}}" class="img-fluid">
                             </div>
                             <div class="text">
                                 <h5>{{$info->name}}</h5>
@@ -121,7 +121,7 @@
                         <div class="testimonial-item">
                             <div class="top">
                                 <div class="img">
-                                    <img src="{{asset('storage/'.$info->image)}}" alt="{{$info->name}}"
+                                    <img src="{{asset($info->image)}}" alt="{{$info->name}}"
                                          class="img-fluid">
                                 </div>
                                 <div class="text">

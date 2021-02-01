@@ -37,20 +37,20 @@
                     <div class="col-lg-8 nav-info-wrap">
                         <div class="nav-info-box">
                             <i class="fa fa-envelope"></i>
-                            <a href="mailto:{{config('site.email')}}">
-                                <span>{{config('site.email')}}</span>
+                            <a href="mailto:{{config('setting.site.email')}}">
+                                <span>{{config('setting.site.email')}}</span>
                             </a>
                         </div>
                         <div class="nav-info-box">
                             <i class="fa fa-map-marker"></i>
-                            <span>{{config('site.address')}}</span>
+                            <span>{{config('setting.site.address')}}</span>
                         </div>
                     </div>
                     <div class="col-md-4 nav-social-links">
-                        <a href="{{config('site.facebook')}}"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{config('site.twitter')}}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{config('site.instagram')}}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{config('site.youtube')}}"><i class="fab fa-youtube"></i></a>
+                        <a href="{{config('setting.site.facebook')}}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{config('setting.site.twitter')}}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{config('setting.site.instagram')}}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{config('setting.site.youtube')}}"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -58,8 +58,8 @@
         <div id="nav-menu-wrap">
             <div class="container">
                 <nav class="navbar navbar-expand-lg p-0">
-                    <a class="navbar-brand" title="{{config('site.title')}}" href="{{url('/')}}">
-                        <img src="{{asset('storage/' . config('site.logo'))}}" alt="{{config('site.title')}}"
+                    <a class="navbar-brand" title="{{config('setting.site.title')}}" href="{{url('/')}}">
+                        <img src="{{asset(config('setting.site.logo'))}}" alt="{{config('setting.site.title')}}"
                              class="img-fluid">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fixedNavbar"
@@ -74,7 +74,7 @@
                                 class="fa fa-search"></i></button>
                     <div class="collapse navbar-collapse main-menu justify-content-end" id="fixedNavbar">
                         <ul class="navbar-nav">
-                            {!! config('site.menu') !!}
+                            {!! config('setting.site.menu') !!}
                         </ul>
                     </div>
                 </nav>
@@ -97,19 +97,19 @@
                             <div class="footer-widget">
                                 <h6 class="footer-title">О нас</h6>
                                 <p class="footer-desc">
-                                    {{config('site.about_us')}}
+                                    {{config('setting.site.about_us')}}
                                 </p>
                                 <div class="footer-social-links">
-                                    <a href="{{config('site.facebook')}}">
+                                    <a href="{{config('setting.site.facebook')}}">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
-                                    <a href="{{config('site.twitter')}}">
+                                    <a href="{{config('setting.site.twitter')}}">
                                         <i class="fab fa-twitter"></i>
                                     </a>
-                                    <a href="{{config('site.instagram')}}">
+                                    <a href="{{config('setting.site.instagram')}}">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="{{config('site.youtube')}}">
+                                    <a href="{{config('setting.site.youtube')}}">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </div>
@@ -119,7 +119,7 @@
                             <div class="footer-widget footer-widget-pl">
                                 <h6 class="footer-title">Информация</h6>
                                 <ul class="footer-links">
-                                    {!!config('site.footer_links')!!}
+                                    {!!config('setting.site.footer_links')!!}
                                 </ul>
                             </div>
                         </div>
@@ -131,14 +131,14 @@
                                         <li>
                                             <h6>Адрес:</h6>
                                             <p>
-                                                {{config('site.address')}}
+                                                {{config('setting.site.address')}}
                                             </p>
                                         </li>
                                         <li>
                                             <h6>Почта и телефон:</h6>
                                             <div class="text">
-                                                <p>{{config('site.phone')}}</p>
-                                                <p>{{config('site.email')}}</p>
+                                                <p>{{config('setting.site.phone')}}</p>
+                                                <p>{{config('setting.site.email')}}</p>
                                             </div>
                                         </li>
                                     </ul>

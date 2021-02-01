@@ -16,7 +16,7 @@
             <div class="row pb-5">
                 <div class="col-lg-6">
                     <div class="services-detail-img">
-                        <img src="{{$detail->image ?asset('storage/'. $detail->image)
+                        <img src="{{$detail->image ?asset($detail->image)
                         :'theme/img/bg/services-detail-img
                         .jpg'}}"
                              alt="{{$detail->name}}" class="img-fluid">
@@ -29,7 +29,7 @@
                         {!! $detail->introduction !!}
                     </div>
                     <ul class="services-list">
-                        @foreach($detail->attribute as $attribute)
+                        @foreach($detail->attributes as $attribute)
                             <li>
                                 <h6><i class="fa fa-arrow-right"></i> {{$attribute->title}}</h6>
                             </li>
@@ -40,11 +40,11 @@
             @if($detail->images || $detail->description)
                 <div class="row py-5">
                     <div class="col-md-4">
-                        @if($detail->images)
+                        @if($images = $detail->images)
                             <div class="owl-carousel owl-theme" id="detail-images">
-                                @foreach($detail->images as $image)
+                                @foreach($images as $image)
                                     <div class="item">
-                                        <img src="{{asset('storage/'.$image)}}" alt="{{$detail->name}}"
+                                        <img src="{{asset($image)}}" alt="{{$detail->name}}"
                                              class="img-fluid">
                                     </div>
                                 @endforeach
@@ -56,32 +56,36 @@
             @endif
         </div>
     </section>
-    @if($detail->prices)
+    @if($detail->prices && $prices = $detail->prices[0])
         <section class="bg-light section pb-minus-70">
             <div class="container container-custom">
                 <div class="py-3 text-center">
-                    @if($detail->prices->title)
-                        <h5 class="mb-3">{{$detail->prices->title}}</h5>
+                    @if($prices['title'])
+                        <h5 class="mb-3">{{$prices['title']}}</h5>
                     @endif
-                    @if($detail->prices->description)
+                    @if($prices['description'])
                         <div class="mb-3">
-                            {!! $detail->prices->description !!}
+                            {!! $prices['description'] !!}
                         </div>
                     @endif
-                    @if($detail->prices->head && $detail->prices->body)
+                    @if(isset($prices['head1']) && $body = json_decode($prices['body'], 1))
                         <div class="table-responsive mt-2">
                             <table class="table table-sm table-striped table-hover text-center">
                                 <thead>
                                 <tr>
-                                    @foreach($detail->prices->head as $head)
-                                        <th scope="col">
-                                            {{$head}}
-                                        </th>
-                                    @endforeach
+                                    <th scope="col">
+                                        {{$prices['head0']}}
+                                    </th>
+                                    <th scope="col">
+                                        {{$prices['head1']}}
+                                    </th>
+                                    <th scope="col">
+                                        {{$prices['head2']}}
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($detail->prices->body as $index => $row_body)
+                                @foreach($body as $row_body)
                                     <tr>
                                         @for($i = 0; $i < count($row_body); $i++)
                                             <th @if($i === 0)scope="row"@endif>
@@ -101,7 +105,7 @@
     <!--// Services Detail Section End //-->
 
     <!--// Faq Section Start //-->
-    @if($detail->question)
+    @if($detail->question && $detail->question->faq && $faq = json_decode($detail->question->faq))
         <section class="section" id="faq">
             <div class="container">
                 <div class="row">
@@ -114,13 +118,13 @@
                 </div>
                 <div class="faq-accordion">
                     <div class="accordion" id="faqAccordion">
-                        @foreach($detail->question->faq as $question)
+                        @foreach($faq as $question)
                             <div class="accordion-item">
                                 <div class="accordion-header" id="heading{{$loop->index}}">
                                     <a href="#" data-toggle="collapse" data-target="#collapse-{{$loop->index}}"
                                        aria-expanded="{{$loop->index < 1 ? 'true' : 'false'}}"
                                        aria-controls="collapse-{{$loop->index}}">
-                                        {{$loop->index +1}}.{{$question[0] ?? ''}}
+                                        {{$loop->index +1}}.{{$question->key ?? ''}}
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </div>
@@ -130,7 +134,7 @@
                                      data-parent="#faqAccordion">
                                     <div class="accordion-body">
                                         <p>
-                                            {{$question[1] ?? ''}}
+                                            {!! $question->value ?? '' !!}
                                         </p>
                                     </div>
                                 </div>

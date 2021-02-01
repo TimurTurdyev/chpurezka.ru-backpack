@@ -187,17 +187,53 @@ class DetailCrudController extends CrudController
                 'label' => "Атрибуты на карточке услуги",
                 'attribute' => "title",
             ], [
-                'name' => 'prices',
-                'label' => 'Первая строка в таблице, используется как заголовок таблицы',
-                'type' => 'table',
-                'entity_singular' => 'option', // used on the "Add X" button
-                'columns' => [
-                    'key1' => 'Значение 1',
-                    'key2' => 'Значение 2',
-                    'key3' => 'Значение 3'
-                ],
-                'min' => 1,
                 'tab' => 'Цены',
+                'name' => 'prices',
+                'label' => 'Описание таблицы цен',
+                'type' => 'repeatable',
+                'fields' => [
+                    [
+                        'name' => 'title',
+                        'type' => 'text',
+                        'label' => 'Заголовок',
+                        'wrapper' => ['class' => 'form-group col-md-12'],
+                    ], [
+                        'name' => 'description',
+                        'type' => 'ckeditor',
+                        'label' => 'Текст',
+                    ], [
+                        'name' => 'head0',
+                        'type' => 'text',
+                        'label' => 'Обозначение колонки 1',
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ], [
+                        'name' => 'head1',
+                        'type' => 'text',
+                        'label' => 'Обозначение колонки 2',
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ], [
+                        'name' => 'head2',
+                        'type' => 'text',
+                        'label' => 'Обозначение колонки 3',
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ], [
+                        'name' => 'body',
+                        'label' => '',
+                        'type' => 'table',
+                        'entity_singular' => 'option', // used on the "Add X" button
+                        'columns' => [
+                            'Значение 1',
+                            'Значение 2',
+                            'Значение 3'
+                        ],
+                        'min' => 1,
+                        'tab' => 'Цены',
+                    ]
+                ],
+                'init_rows' => 1,
+                'min_rows' => 1,
+                'max_rows' => 1,
+
             ], [
                 'name' => 'image',
                 'type' => 'browse',
@@ -225,5 +261,82 @@ class DetailCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $questions = $this->questions();
+        $categories = $this->categories();
+
+        // example logic
+        $this->crud->addColumns([
+            [
+                'name' => 'name',
+                'label' => "Название",
+            ], [
+                'name' => 'short_name',
+                'label' => "Короткое название",
+            ], [
+                'name' => 'title',
+                'label' => "Заголовок",
+            ], [
+                'name' => 'sub_title',
+                'label' => "Подзаголовок",
+            ], [
+                'name' => 'meta_title',
+                'label' => "Мета тайтл",
+            ], [
+                'name' => 'meta_description',
+                'label' => "Мета описание",
+            ], [
+                'name' => 'introduction',
+                'label' => "Краткое описание",
+            ], [
+                'name' => 'description',
+                'label' => "Полное описание",
+            ], [
+                'label' => "Категория",
+                'name' => 'service_id',
+                'type' => 'closure',
+                'function' => function ($entry) use ($categories) {
+                    return isset($categories[$entry->service_id]) ? $categories[$entry->service_id] : '-';
+                }
+            ], [
+                'name' => 'question_id',
+                'label' => "Вопрос/ответ",
+                'type' => 'closure',
+                'function' => function ($entry) use ($questions) {
+                    return isset($questions[$entry->question_id]) ? $questions[$entry->question_id] : '-';
+                }
+            ], [
+                'name' => 'filters', // the method on your model that defines the relationship
+                'label' => "Фильтры, выводяться в категории",
+            ], [
+                'name' => 'attributes', // the method on your model that defines the relationship
+                'label' => "Атрибуты на карточке услуги",
+            ], [
+                'name' => 'prices',
+                'label' => 'Описание таблицы цен',
+            ], [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => "Главная картинка",
+            ], [
+                'name' => 'images',
+                'label' => "Дополнительные картинки",
+                'type' => 'closure',
+                'function' => function ($entry) {
+                    $images = [];
+                    foreach ($entry->images as $image) {
+                        $images[] = sprintf('<img src="%s%s" style="max-height: 50px;">', env('APP_URL'), $image);
+                    }
+                    return implode('', $images);
+                }
+            ]
+        ]);
+        // $this->crud->removeColumn('date');
+        // $this->crud->removeColumn('extras');
     }
 }

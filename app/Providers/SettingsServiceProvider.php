@@ -42,14 +42,9 @@ class SettingsServiceProvider extends ServiceProvider
             // bind all settings to the Laravel config, so you can call them like
             // Config::get('settings.contact_email')
             foreach ($settings as $key => $setting) {
-                Config::set('settings.'.$setting->key, $setting->value);
+                Config::set('setting.' . $setting->key, $setting->value);
             }
         }
-        // publish the migrations and seeds
-//        $this->publishes([__DIR__.'/database/migrations/' => database_path('migrations')], 'migrations');
-//
-//        // publish translation files
-//        $this->publishes([__DIR__.'/resources/lang' => resource_path('lang/vendor/backpack')], 'lang');
     }
 
     /**
@@ -62,11 +57,11 @@ class SettingsServiceProvider extends ServiceProvider
     public function setupRoutes(Router $router)
     {
         // by default, use the routes file provided in vendor
-        $routeFilePathInUse = __DIR__.$this->routeFilePath;
+        $routeFilePathInUse = __DIR__ . $this->routeFilePath;
 
         // but if there's a file with the same name in routes/backpack, use that one
-        if (file_exists(base_path().$this->routeFilePath)) {
-            $routeFilePathInUse = base_path().$this->routeFilePath;
+        if (file_exists(base_path() . $this->routeFilePath)) {
+            $routeFilePathInUse = base_path() . $this->routeFilePath;
         }
 
 
@@ -80,12 +75,6 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('settings', function ($app) {
-            return new Settings($app);
-        });
 
-        // register their aliases
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('Setting', app\Models\Setting::class);
     }
 }
