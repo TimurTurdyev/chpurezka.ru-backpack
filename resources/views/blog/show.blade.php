@@ -1,6 +1,6 @@
 @extends('welcome')
-@section('title', $post->seo_title)
-@section('description', $post->seo_description)
+@section('meta_title', $post->meta_title)
+@section('meta_description', $post->meta_description)
 @section('content')
     @include('master.breadcrumb', [
      'h1' => 'Все статьи блога',
@@ -18,7 +18,7 @@
                 <div class="col-lg-8">
                     <div class="blog-post-single">
                         <div class="blog-post-img">
-                            <img src="{{asset('storage/'.$post->image)}}"
+                            <img src="{{asset($post->image)}}"
                                  alt="{{$post->name}}"
                                  class="img-fluid">
                             <div class="post-date">

@@ -1,6 +1,6 @@
 @extends('welcome')
-@section('title', $blog->seo_title)
-@section('description', $blog->seo_description)
+@section('meta_title', $blog->meta_title)
+@section('meta_description', $blog->meta_description)
 @section('content')
     @include('master.breadcrumb', [
      'h1' => 'Все статьи блога',
@@ -21,7 +21,7 @@
                                 <div class="blog-item">
                                     <div class="blog-img">
                                         <a href="{{route('blog.show', $post->id)}}">
-                                            <img src="{{asset('storage/' . $post->image)}}" alt="{{$post->name}}"
+                                            <img src="{{asset($post->image)}}" alt="{{$post->name}}"
                                                  class="img-fluid">
                                         </a>
                                         <span class="blog-date">{{date('D m', strtotime($post->created_at))}}</span>

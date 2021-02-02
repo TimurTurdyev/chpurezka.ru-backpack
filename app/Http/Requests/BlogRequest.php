@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuestionRequest extends FormRequest
+class BlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,10 @@ class QuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
+            'name' => 'required|max:128',
+            'title' => 'required|max:128',
+            'meta_title' => 'required|max:255',
+            'meta_description' => 'required|max:255',
         ];
     }
 
@@ -51,8 +53,10 @@ class QuestionRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'Название обязательно!',
             'title.required' => 'Заголовок обязателен!',
-            'description.required' => 'Описание обязательно!',
+            'meta_title.required' => 'Мета тайтл обязателен!',
+            'meta_description.required' => 'Мета описание обязательно!',
         ];
     }
 }
