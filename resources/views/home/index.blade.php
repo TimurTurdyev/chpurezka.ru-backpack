@@ -44,7 +44,7 @@
     </section>
     <!--// Services Section End //-->
     <!--// Latest Blog Section Start //-->
-    @if($post)
+    @if(count($post))
         <section class="section pb-minus-70" id="latest-blog">
             <div class="container">
                 <div class="row">
