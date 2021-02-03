@@ -41,7 +41,7 @@ class Post extends Model
 
     public function blog(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Blog');
+        return $this->belongsTo('App\Models\Blog')->where('status', 1);
     }
 
     public function tags(): BelongsToMany
