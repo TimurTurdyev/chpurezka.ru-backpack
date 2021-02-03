@@ -12,12 +12,12 @@
     <!--// Project Grid Section Start //-->
     <section class="section pb-minus-70" id="portfolio-grid">
         <div class="container">
-            <div class="portolio-grid-header">
-                <div class="section-heading-left">
+            <div class="portolio-grid-header align-items-start">
+                <div class="section-heading-left w-100">
                     <h6>{{$service->sub_title}}</h6>
                     <h2>{{$service->name}}</h2>
                 </div>
-                <div class="gallery-filter">
+                <div class="gallery-filter flex-wrap">
                     <a href="#" data-gallery-filter="*" class="current">Все</a>
                     @foreach($service->filters as $filter)
                         <a href="#" data-gallery-filter=".info_filter{{$filter->id}}">{{$filter->title}}</a>
