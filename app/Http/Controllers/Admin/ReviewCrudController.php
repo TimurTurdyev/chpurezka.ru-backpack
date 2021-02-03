@@ -56,10 +56,6 @@ class ReviewCrudController extends CrudController
             ], [
                 'name' => 'description',
                 'label' => "Описание",
-                'type' => 'closure',
-                'function' => function ($entry) {
-                    return substr(strip_tags($entry->description), 0, 50) . '...';
-                }
             ]
         ]);
     }
