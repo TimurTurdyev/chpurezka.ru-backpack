@@ -110,7 +110,6 @@ class PostCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(PostRequest::class);
-
         $this->crud->addFields([
             [
                 'name' => 'name',
@@ -130,15 +129,25 @@ class PostCrudController extends CrudController
                 'default' => 0,
             ], [
                 'tab' => 'Связи',
-                'label'     => "Tags",
-                'type'      => 'select2_multiple',
-                'name'      => 'tags',
-                'entity'    => 'tags',
-                'model'     => "App\Models\Tag",
+                'wrapper' => ['class' => 'form-group col-md-6'],
+                'label' => "Автор",
+                'name' => 'author_id',
+                'type' => 'select2',
                 'attribute' => 'name',
-                'pivot'     => true,
+                'entity' => 'authorId',
+                'model' => 'App\Models\User',
+                'default' => 0,
+            ], [
+                'tab' => 'Связи',
+                'label' => "Tags",
+                'type' => 'select2_multiple',
+                'name' => 'tags',
+                'entity' => 'tags',
+                'model' => "App\Models\Tag",
+                'attribute' => 'name',
+                'pivot' => true,
                 'select_all' => true,
-                'options'   => (function ($query) {
+                'options' => (function ($query) {
                     return $query->orderBy('name', 'ASC')->get();
                 }),
             ], [
@@ -183,6 +192,7 @@ class PostCrudController extends CrudController
                     0 => "Выкл",
                     1 => "Вкл"
                 ],
+                'default' => 0,
                 'inline' => true,
             ]
         ]);

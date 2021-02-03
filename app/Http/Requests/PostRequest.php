@@ -26,6 +26,8 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
+            'status' => 'required',
+            'author_id' => 'required',
             'name' => 'required|max:128',
             'title' => 'required|max:128',
             'meta_title' => 'required|max:255',
@@ -53,6 +55,8 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
+            'status.required' => 'Статус обязательно!',
+            'author.required' => 'Автор обязательно!',
             'name.required' => 'Название обязательно!',
             'title.required' => 'Заголовок обязателен!',
             'meta_title.required' => 'Мета тайтл обязателен!',

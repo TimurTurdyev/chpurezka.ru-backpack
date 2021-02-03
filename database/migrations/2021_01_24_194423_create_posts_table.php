@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->bigInteger('blog_id')->index()->nullable();
             $table->bigInteger('author_id')->index();
-            $table->string('name', 128)->unique();
+            $table->string('name', 128)->index();
             $table->string('title', 128);
             $table->string('image', 255)->nullable();
             $table->string('meta_title', 255);

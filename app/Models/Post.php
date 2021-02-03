@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,17 +28,7 @@ class Post extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
-
-    public function setAuthorIdAttribute($value)
-    {
-        // If no author has been assigned, assign the current user's id as the author of the post
-        if (!$value) {
-            $value = backpack_user()->id;
-        }
-        $this->attributes['author_id'] = $value ?? 0;
-    }
-
-    public function authorId()
+    public function authorId(): BelongsTo
     {
         return $this->belongsTo('App\Models\User', 'author_id', 'id');
     }
@@ -48,7 +39,7 @@ class Post extends Model
             ->first(['name', 'id']);
     }
 
-    public function blog()
+    public function blog(): BelongsTo
     {
         return $this->belongsTo('App\Models\Blog');
     }
