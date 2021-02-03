@@ -34,18 +34,22 @@
                                                 </span>
                                                 </a>
                                             @endif
-                                            <a href="{{route('blog.show', $post->id)}}">
-                                                <span><i class="far fa-bookmark"></i>{{$post->name}}</span>
-                                            </a>
+                                            @if($post->blog_id)
+                                                <a href="{{route('blog.index', $post->blog_id)}}">
+                                                    <span><i class="far fa-bookmark"></i>{{$post->blog->name ?? ''}}</span>
+                                                </a>
+                                            @endif
                                         </div>
                                         <h5>
                                             <a href="{{route('blog.show', $post->id)}}">
                                                 {{$post->name}}
                                             </a>
                                         </h5>
-                                        <p>
-                                            {{mb_substr($post->excerpt, 0, 50)}} [..]
-                                        </p>
+                                        @if($post->excerpt)
+                                            <p>
+                                                {{mb_substr(strip_tags($post->excerpt), 0, 50)}} [..]
+                                            </p>
+                                        @endif
                                         <a href="{{route('blog.show', $post->id)}}"
                                            class="blog-link">
                                             Перейти

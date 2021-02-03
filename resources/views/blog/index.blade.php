@@ -41,9 +41,11 @@
                                                 {{$post->name}}
                                             </a>
                                         </h5>
-                                        <p>
-                                            {{mb_substr($post->excerpt, 0, 50)}} [..]
-                                        </p>
+                                        @if($post->excerpt)
+                                            <p>
+                                                {{mb_substr(strip_tags($post->excerpt), 0, 50)}} [..]
+                                            </p>
+                                        @endif
                                         <a href="{{route('blog.show', $post->id)}}" class="blog-link">
                                             Перейти
                                             <i class="fa fa-arrow-right"></i>

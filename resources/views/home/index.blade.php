@@ -43,67 +43,65 @@
         </div>
     </section>
     <!--// Services Section End //-->
-
-    <!--// Work Process Section Start //-->
-    <section class="section pb-minus-70" id="work-process">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="section-heading-center">
-                        <h6>Work Process</h6>
-                        <h2>How It Works</h2>
+    <!--// Latest Blog Section Start //-->
+    @if($post)
+        <section class="section pb-minus-70" id="latest-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="section-heading-left">
+                            <h6>Блог</h6>
+                            <h2>Последние записи</h2>
+                        </div>
                     </div>
+                </div>
+                <div class="owl-carousel owl-theme" id="blog-carousel">
+                    @foreach($post as $info)
+                        <div class="item">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <a href="{{route('blog.show', $info->id)}}">
+                                        <img src="{{$info->image}}" alt="{{$info->name}}" class="img-fluid">
+                                    </a>
+                                    <span class="blog-date">{{date('D m', strtotime($info->created_at))}}</span>
+                                </div>
+                                <div class="blog-body">
+                                    <div class="blog-meta">
+                                        @if($author = $info->author())
+                                            <a href="#">
+                                                <span><i class="far fa-user"></i>
+                                                    By {{$author->name}}
+                                                </span>
+                                            </a>
+                                        @endif
+                                        @if($info->blog_id)
+                                            <a href="{{route('blog.index', $info->blog_id)}}"><span><i
+                                                        class="far fa-bookmark"></i>{{$info->blog->name ?? ''}}</span></a>
+                                        @endif
+                                    </div>
+                                    <h5>
+                                        <a href="{{route('blog.show', $info->id)}}">
+                                            {{$info->name}}
+                                        </a>
+                                    </h5>
+                                    @if($info->excerpt)
+                                        <p>
+                                            {{mb_substr(strip_tags($info->excerpt), 0, 50)}} [..]
+                                        </p>
+                                    @endif
+                                    <a href="{{route('blog.show', $info->id)}}" class="blog-link">
+                                        Перейти
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="work-process-item">
-                        <div class="img">
-                            <img src="img/bg/work-process-img-1.jpg" alt="Work Process image" class="img-fluid">
-                            <span>01</span>
-                        </div>
-                        <div class="text">
-                            <h6>Thinking</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="work-process-item">
-                        <div class="img">
-                            <img src="img/bg/work-process-img-2.jpg" alt="Work Process image" class="img-fluid">
-                            <span>02</span>
-                        </div>
-                        <div class="text">
-                            <h6>Research</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="work-process-item">
-                        <div class="img">
-                            <img src="img/bg/work-process-img-3.jpg" alt="Work Process image" class="img-fluid">
-                            <span>03</span>
-                        </div>
-                        <div class="text">
-                            <h6>Wireframe</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="work-process-item">
-                        <div class="img">
-                            <img src="img/bg/work-process-img-4.jpg" alt="Work Process image" class="img-fluid">
-                            <span>04</span>
-                        </div>
-                        <div class="text">
-                            <h6>Design</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--// Work Process Section End //-->
+        </section>
+    @endif
+    <!--// Latest Blog Section End //-->
     <!--// Testimonial Section Start //-->
     <section class="section bg-light-grey pb-minus-70" id="testimonials">
         <div class="container">
