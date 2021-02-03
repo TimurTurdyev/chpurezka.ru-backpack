@@ -20,7 +20,7 @@
                 <div class="gallery-filter flex-wrap">
                     <a href="#" data-gallery-filter="*" class="current">Все</a>
                     @foreach($service->filters as $filter)
-                        <a href="#" data-gallery-filter=".info_filter{{$filter->id}}">{{$filter->title}}</a>
+                        <a href="#" data-gallery-filter=".info_filter{{$filter->id}}" class="mb-sm-1">{{$filter->title}}</a>
                     @endforeach
                 </div>
             </div>
