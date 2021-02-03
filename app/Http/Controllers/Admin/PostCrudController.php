@@ -77,6 +77,10 @@ class PostCrudController extends CrudController
             ], [
                 'name' => 'status',
                 'label' => "Статус",
+                'type' => 'closure',
+                'function' => function ($entry) {
+                    return (int)$entry->status ? 'Вкл': 'Выкл';
+                }
             ]
         ]);
     }
