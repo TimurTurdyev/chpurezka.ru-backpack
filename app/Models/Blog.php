@@ -29,6 +29,7 @@ class Blog extends Model
     public function categoriesList()
     {
         return $this->join('posts', 'blogs.id', '=', 'posts.blog_id')
+            ->where('posts.status', '=', '1')
             ->groupBy(['blogs.id', 'blogs.name'])
             ->orderBy('blogs.id')
             ->get([DB::raw('COUNT(posts.id) as total'), 'blogs.id', 'blogs.name']);
@@ -54,6 +55,6 @@ class Blog extends Model
 
     public function post()
     {
-        return $this->hasMany('App\Models\Post')->paginate(12);
+        return $this->hasMany('App\Models\Post')->where('status', 1)->paginate(12);
     }
 }
