@@ -130,10 +130,8 @@
                             <div class="body">
                                 {!!$info->description!!}
                                 <div class="rating-star">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        @if($i < $info->rating)
-                                            <i class="fa fa-star"></i>
-                                        @endif
+                                    @for($i = 1; $i <= (int)$info->rating; $i++)
+                                        <i class="fa fa-star"></i>
                                     @endfor
                                 </div>
                             </div>
