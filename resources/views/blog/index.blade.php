@@ -4,7 +4,7 @@
 @section('content')
     @include('master.breadcrumb', [
      'h1' => 'Все статьи блога',
-     'banner' => '',
+     'banner' => $blog->banner ?? '',
      'breadcrumbs' => [
                 [route('blog.all'), 'Все статьи'],
                 [route('blog.index', $blog->id), $blog->name],
