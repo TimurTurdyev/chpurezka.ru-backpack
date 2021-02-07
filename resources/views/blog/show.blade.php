@@ -39,7 +39,7 @@
                                     {{$post->blog->name}}
                                 </a>
                             </div>
-                            {!! $post->body !!}
+                            {!! $post->description !!}
                         </div>
                     </div>
                 </div>
