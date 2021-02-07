@@ -18,7 +18,7 @@
                     <h2>{{$service->name}}</h2>
                 </div>
                 <div class="gallery-filter flex-wrap">
-                    <a href="#" data-gallery-filter="*" class="current">Все</a>
+                    <a href="#" data-gallery-filter="*" class="current mb-sm-1">Все</a>
                     @foreach($service->filters as $filter)
                         <a href="#" data-gallery-filter=".info_filter{{$filter->id}}" class="mb-sm-1">{{$filter->title}}</a>
                     @endforeach
