@@ -4,7 +4,7 @@
 @section('content')
     @include('master.breadcrumb', [
      'h1' => 'Наши контакты',
-     'banner' => '',
+     'banner' => 'storage/blog/blog_all.jpg',
      'breadcrumbs' => [
                 [route('contact.index'), 'Контакты'],
             ]
