@@ -231,5 +231,6 @@
 <!--// Main Js //-->
 <script src="theme/js/main.js"></script>
 @stack('javascript')
+{!! config('setting.site.scripts') !!}
 </body>
 </html>
